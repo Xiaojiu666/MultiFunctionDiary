@@ -1,0 +1,33 @@
+def supportVersion = "25.3.1"
+def glideVersion = '3.7.0'
+def gsonVersion = '2.6.2'
+def multiStateViewVersion = '1.3.2'
+def butterKnifeVersion = '8.4.0'
+def floatingactionbutton = '1.10.1'
+
+ext {
+    dependenciesa = [
+            "support-v4"             : "com.android.support:support-v4:${supportVersion}",
+            "floatingactionbutton"   : "com.getbase:floatingactionbutton:${floatingactionbutton}",
+            "support-vector-drawable": "com.android.support:support-vector-drawable:${supportVersion}",
+            "appcompat-v7"           : "com.android.support:appcompat-v7:${supportVersion}",
+            "support-appcomat"       : "com.android.support:support-compat:${supportVersion}",
+            "design"                 : "com.android.support:design:${supportVersion}",
+            "cardview-v7"            : "com.android.support:cardview-v7:${supportVersion}",
+            "recyclerview-v7"        : "com.android.support:recyclerview-v7:${supportVersion}",
+            "glide"                  : "com.github.bumptech.glide:glide:${glideVersion}",
+            "gson"                   : "com.google.code.gson:gson:${gsonVersion}",
+            "multi-state-view"       : "com.github.Kennyc1012:MultiStateView:${multiStateViewVersion}",
+            "butterKnife_support"    : "com.jakewharton:butterknife:${butterKnifeVersion}",
+            "butterKnife_compiler"   : "com.jakewharton:butterknife-compiler:${butterKnifeVersion}"
+    ]
+
+    versions = [
+            "buildToolsVersion": "28.0.3",
+            "compileSdkVersion": 28,
+            "minSdkVersion"    : 16,
+            "targetSdkVersion" : 25,
+            "versionCode"      : 3,
+            "versionName"      : "3.0"
+    ]
+}
