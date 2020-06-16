@@ -1,4 +1,4 @@
-package com.sn.sndiary;
+package com.sn.diary;
 
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.OvalShape;
@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
+import com.sn.sndiary.R;
 
 public class DemoActivity extends AppCompatActivity {
 

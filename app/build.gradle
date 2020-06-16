@@ -6,7 +6,7 @@ android {
     compileSdkVersion versions.compileSdkVersion
     buildToolsVersion versions.buildToolsVersion
     defaultConfig {
-        applicationId "com.sn.sndiary"
+        applicationId "com.sn.diary"
         minSdkVersion 18
         targetSdkVersion 28
         versionCode 1
@@ -33,5 +33,4 @@ dependencies {
     implementation librarys.glide
     implementation librarys.butterKnife_support
     annotationProcessor librarys.butterKnife_compiler
-    implementation project(':mvclibrary')
 }

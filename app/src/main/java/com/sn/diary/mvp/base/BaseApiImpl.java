@@ -1,6 +1,4 @@
-package com.sn.mvclibrary.base.base;
-
-import android.content.Context;
+package com.sn.diary.mvp.base;
 
 
 public abstract class BaseApiImpl implements BaseApi {

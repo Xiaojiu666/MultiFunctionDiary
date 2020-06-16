@@ -1,4 +1,4 @@
-package com.sn.mvclibrary.base.base;
+package com.sn.diary.mvp.base;
 
 /** @version    1.1.0
  * @author      yoosir

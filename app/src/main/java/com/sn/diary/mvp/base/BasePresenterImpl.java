@@ -1,4 +1,4 @@
-package com.sn.mvclibrary.base.base;
+package com.sn.diary.mvp.base;
 
 
 /**
@@ -12,7 +12,6 @@ public class BasePresenterImpl<V extends BaseView, M extends BaseApi, T> impleme
     public BasePresenterImpl(V rootView, M model) {
         mView = rootView;
         mApi = model;
-       // beforeRequest();
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.sn.mvclibrary.base.base;
+package com.sn.diary.mvp.base;
 
 
 /**
