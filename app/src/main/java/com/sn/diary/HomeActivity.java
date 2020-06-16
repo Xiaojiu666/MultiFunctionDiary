@@ -14,6 +14,7 @@ import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import com.sn.diary.mvp.base.BaseAppCompatActivity;
 import com.sn.diary.mvp.base.BaseFragment;
 import com.sn.diary.mvp.fragment.HomeFragment;
+import com.sn.diary.mvp.fragment.SettingFragment;
 import com.sn.sndiary.R;
 
 import butterknife.BindView;
@@ -66,7 +67,7 @@ public class HomeActivity extends BaseAppCompatActivity
 
     @Override
     public void initOnClick() {
-
+        navView.setNavigationItemSelectedListener(this);
     }
 
     @Override
@@ -75,10 +76,13 @@ public class HomeActivity extends BaseAppCompatActivity
     }
 
     private static final int TAB_HOME = 0;
+    private static final int TAB_SETTING = 4;
     private HomeFragment homeFragment;
+    private SettingFragment settingFragment;
 
     private void contorlFragment(int position) {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        hideFragments(fragmentTransaction, position);
         switch (position) {
             case TAB_HOME:
                 if (homeFragment == null) {
@@ -87,8 +91,25 @@ public class HomeActivity extends BaseAppCompatActivity
                 }
                 showFragment(fragmentTransaction, homeFragment);
                 break;
+            case TAB_SETTING:
+                if (settingFragment == null) {
+                    settingFragment = new SettingFragment();
+                    fragmentTransaction.add(R.id.home_framelayout, settingFragment);
+                }
+                showFragment(fragmentTransaction, settingFragment);
+                break;
         }
         fragmentTransaction.commitAllowingStateLoss();
+    }
+
+    // 除了自己 先隐藏掉所有的Fragment，以防止有多个Fragment显示在界面上的情况
+    private void hideFragments(FragmentTransaction transaction, int position) {
+        if (homeFragment != null && position != TAB_HOME) {
+            transaction.hide(homeFragment);
+        }
+        if (settingFragment != null && position != TAB_SETTING) {
+            transaction.hide(settingFragment);
+        }
     }
 
     private void showFragment(FragmentTransaction transaction, BaseFragment fragment) {
@@ -103,22 +124,20 @@ public class HomeActivity extends BaseAppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_drawer_home) {
             contorlFragment(TAB_HOME);
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {
 
-        } else if (id == R.id.nav_manage) {
-
+        } else if (id == R.id.nav_drawer_setting) {
+            contorlFragment(TAB_SETTING);
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
 
         }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
+        drawerLayout.closeDrawers();
         return true;
     }
 }
