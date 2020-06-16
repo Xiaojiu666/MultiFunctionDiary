@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.sn.diary.mvp.modul.bean.DiaryListBean;
+import com.sn.diary.utils.TimeUtils;
 import com.sn.sndiary.R;
 
 import java.util.List;
@@ -37,7 +38,13 @@ public class HomeRecycleViewAdapter extends RecyclerView.Adapter<HomeRecycleView
     //通过方法提供的ViewHolder，将数据绑定到ViewHolder中
     @Override
     public void onBindViewHolder(MyHolder holder, int position) {
-        holder.textView.setText(mList.get(position).getTime()+"");
+        if(TimeUtils.isToday(mList.get(position).getTime())){
+            holder.textView.setText("今天");
+        }else if(TimeUtils.isYesToday(mList.get(position).getTime())){
+            holder.textView.setText("昨天");
+        }else{
+            holder.textView.setText(TimeUtils.getDateToString(mList.get(position).getTime()));
+        }
         RecyclerView.LayoutManager layoutManager=new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL,false);
         HomeDetialAdapter homeDetialAdapter=new HomeDetialAdapter(mContext,mList.get(position).getDiaryList());
         holder.rv_detial.setLayoutManager(layoutManager);
